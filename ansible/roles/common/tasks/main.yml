@@ -48,3 +48,8 @@
 
 - include: fedora-install.yml
   when: not is_atomic and ansible_distribution == "Fedora"
+
+- name: set ansible_architecture to amd64 when x86_64
+  set_fact: ansible_architecture="amd64"
+  when: ansible_architecture == "x86_64"
+
